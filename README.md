@@ -12,7 +12,8 @@ Todos los avances presentados, fueron desarrollados en la siguiente liga a una c
 # Clasificación de emociones de perros
 
 ## Dataset
-El dataset seleccionado para el desarrollo de este proyecto fue creado por " ", el cual fue obtenido en la plataforma Kaggle, donde se encontró indentificado como " "
+El dataset seleccionado para el desarrollo de este proyecto fue creado por " ", el cual fue obtenido en la plataforma Kaggle, donde se encontró indentificado como ["Dog Emotion Image Classification"](https://www.kaggle.com/datasets/danielshanbalico/dog-emotion/data)
+
 
 El dataset contiene imagenes las cuales están categorizadas por clases referentes a las emociones que podría tener un perro. Dicho esto este dataset fue construido para poderse utilizar con machine learning y generar un clasificador referente a las emociones de un perro.
 
