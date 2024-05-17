@@ -12,41 +12,42 @@ Todos los avances presentados, fueron desarrollados en la siguiente liga a una c
 # Clasificación de emociones de perros
 
 ## Dataset
-El dataset seleccionado para el desarrollo de este proyecto fue creado por " ", el cual fue obtenido en la plataforma Kaggle, donde se encontró indentificado como ["Dog Emotion Image Classification"](https://www.kaggle.com/datasets/danielshanbalico/dog-emotion/data)
+El dataset seleccionado para el desarrollo de este proyecto fue creado por Daniel Shan Balico en 2023, el cual fue obtenido en la plataforma Kaggle, donde se encontró indentificado como ["Dog Emotion Image Classification"](https://www.kaggle.com/datasets/danielshanbalico/dog-emotion/data)
 
 
 El dataset contiene imagenes las cuales están categorizadas por clases referentes a las emociones que podría tener un perro. Dicho esto este dataset fue construido para poderse utilizar con machine learning y generar un clasificador referente a las emociones de un perro.
 
-La construcción del dataset fue por medio de imagenes referentes de 
+La construcción del dataset fue por medio de imagenes recopiladas de varias fuentes en línea, como Kaggle y motores de búsqueda de imágenes. Y para asegurar la representatividad correcta de los datos, se seleccionaron imágenes de una variedad de razas de perros.
 
-La estructura de data set esta por carpetas referentes a las clases de:
-- Enojo
-- Felicidad
-- Tristeza
-- Relajación
+La estructura de data set esta por carpetas referentes a las clases de emociones:
+- Angry
+- Happy
+- Relaxed
+- Sad
 
-Cada una de estas carpetas contiene 1000 imagenes de perros efectuando la respectiva emoción
+Cada una de estas carpetas contiene 1000 imágenes de perros, de diferentes razas represenentado la respectiva emoción
 
 Para hacer la separación de los datos, decidí dividir la estructura de la carpeta original del dataset en carpetas para el training, validation y testing del modelo a construir
 La separación fue hecha por medio de un script DataSplit.py el cual genera una división dada por porcentajes, en donde la carpeta train contiene el 80% de las imagenes del dataset y tanto la carpeta de validation y test contienen el 10% respectivamente
 Contando con una estructura final del conjunto de imagenes de la siguiente forma:
 
-
 ### Train
-- Enojo : 800 imágenes
-- Felicidad : 800 imágenes
-- Tristeza : 800 imágenes
-- Relajación : 800 imágenes
+- Angry : 800 imágenes
+- Happy : 800 imágenes
+- Relaxed : 800 imágenes
+- Sad : 800 imágenes
 ### Validation
-- Enojo : 100 imágenes
-- Felicidad : 100 imágenes
-- Tristeza : 100 imágenes
-- Relajación : 100 imágenes
+- Angry : 100 imágenes
+- Happy : 100 imágenes
+- Relaxed : 100 imágenes
+- Sad : 100 imágenes
 ### Test
-- Enojo : 100 imágenes
-- Felicidad : 100 imágenes
-- Tristeza : 100 imágenes
-- Relajación : 100 imágenes
+- Angry : 100 imágenes
+- Happy : 100 imágenes
+- Relaxed : 100 imágenes
+- Sad : 100 imágenes
+
+## Separación 
 
 
 
