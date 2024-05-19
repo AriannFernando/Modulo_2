@@ -57,10 +57,10 @@ Para el prepocesamiento se realizó lo siguiente para el conjunto de **train**:
 - **Redimensionamiento de las imágenes:** Para esto se definió un redimensionamiento de las imágenes del dataset a 150*150 píxeles para mantener consistencia entre los datasets.
 -   **Data augmentation:** Debido al tamaño reducido del dataset, se decidió aplicar un data augmentation, que significa el transformar las imágenes del conjunto **train** del dataset, y así poder aumentar la cantidad de imágenes diferentes que recibe el modelo para su entrenamiento. Es por eso que lo aplicado para del conjunto de “train” fueron las siguientes transformaciones:
   -   **Rotation:** Se estableció un rango posible de rotación de 180 grados.
-  -   **Width shift:** Se definió que se pueda modificar la imagen en su ancho, es decir, ampliarlo hasta un 20% de la imagen original.
-  -   **Height shift:** Se definió que se pueda modificar la imagen en su altura, es decir, estirarlo hasta un 20% de la imagen original.
-  -   **Shear:** Se estableció un rango de cizallamiento de 0.3, lo que significa que la imagen original puede ser inclinada aleatoriamente en un rango de -0.2 a 0.2 radianes.
-  -   **Zoom:** Se definió un rango de acercamiento de 0.2, lo cual es referente a que la imagen original puede ser modificada al acercar la imagen hasta un 30% de su tamaño original.
+  -   **Width shift:** Se definió que se pueda modificar la imagen en su ancho, es decir, ampliarlo hasta un 30% de la imagen original.
+  -   **Height shift:** Se definió que se pueda modificar la imagen en su altura, es decir, estirarlo hasta un 30% de la imagen original.
+  -   **Shear:** Se estableció un rango de cizallamiento de 0.3, lo que significa que la imagen original puede ser inclinada aleatoriamente en un rango de -0.1 a 0.1 radianes.
+  -   **Zoom:** Se definió un rango de acercamiento de 0.2, lo cual es referente a que la imagen original puede ser modificada al acercar la imagen hasta un 10% de su tamaño original.
   -   **Horizontal flip:** Se estableció como verdadero este parámetro el cual indica que se puede modificar la imagen original al rotarla completamente en su eje horizontal
 
 Cabe mencionar que para cada modificación, cuando se generan las imágenes por medio del ImageDataGenerator se puede aplicar esta modificación de manera aleatoria, es decir, cuando se genera una imagen modificada hay una probabilidad que se aplique una modificación definida previamente. Y al analizar con detenimiento las imágenes existente en el conjunto de **train**, se puede concluir que las modificaciones definidas previamente no implican un cambio en el significado de las imágenes originales. No se pierde su interpretación, por lo cual se pueden utilizar para el entrenamiento del modelo.
@@ -76,6 +76,8 @@ El preprocesamiento de los datos descrito se encuentra realizado en la carpeta d
 Con propósitos de demostración se mandó a llamar el generador de imágenes para el conjunto train y se guardaron los resultados en la capeta **files > augmented**. Se utilizó un batch size de 40 con el objetivo de demostrar él data augmentation aplicado para el preprocesamiento de los conjuntos de datos. Al momento de implementar el modelo se espera modificar esto y ampliar el batch size a 2800 para que se acople a las necesidades del entrenamiento.
 
 Por último, se utilizaron las librerías de matplotlib y numpy para poder visualizar las imágenes creadas por el generador de imágenes con el lote previamente definido. Como se muestra a continuación:
+
+![Imagen de referencia](files/augmented/Evidence.png)
 
 
 
