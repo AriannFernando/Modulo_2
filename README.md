@@ -6,7 +6,7 @@ Ariann Fernando Arriaga Alcántara A01703556
 
 En el siguiente repositorio se alojarán todos los archivos desarrollados referentes al modelo para el Módulo 2 de la materia de Desarrollo de aplicaciones avanzadas de ciencias computacionales TC3002B
 
-Todos los avances presentados en este repositorio se encuentran disponibles en la siguiente carpeta de Google Drive:[Módulo 2](https://drive.google.com/drive/folders/14AKGu8siQM9iV9aBoJnX9msSJgTD-qDk?usp=sharing)
+Todos los avances presentados en este repositorio se encuentran disponibles en la siguiente carpeta de Google Drive: [Módulo 2](https://drive.google.com/drive/folders/14AKGu8siQM9iV9aBoJnX9msSJgTD-qDk?usp=sharing)
 
 
 # Clasificación de emociones de perros
