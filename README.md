@@ -6,7 +6,7 @@ Ariann Fernando Arriaga Alcántara A01703556
 
 En el siguiente repositorio se alojarán todos los archivos desarrollados referentes al modelo para el Módulo 2 de la materia de Desarrollo de aplicaciones avanzadas de ciencias computacionales TC3002B
 
-Todos los avances presentados, fueron desarrollados en la siguiente liga a una carpeta de drive: [Repositorio](https://drive.google.com/drive/folders/14AKGu8siQM9iV9aBoJnX9msSJgTD-qDk?usp=sharing)
+Todos los avances presentados, fueron desarrollados en la siguiente liga a una carpeta de drive: [Módulo 2](https://drive.google.com/drive/folders/14AKGu8siQM9iV9aBoJnX9msSJgTD-qDk?usp=sharing)
 
 
 # Clasificación de emociones de perros
@@ -50,6 +50,34 @@ Contando con una estructura final del conjunto de imagenes de la siguiente forma
 - Sad : 150 imágenes
 
 ## Preprocesado de los datos
+Para poder entrenar el modelo de manera correcta se deben de preparar las imágenes para poder maximizar la posible efectividad de los resultados de este mismo.
+Para el modelo presentado se utiza ImageDataGenerator de la librería TensorFlow, dedicada a machine learnig.
+Para el prepocesado se realizó lo siguiente para el conjunto de Train:
+- Normalización del valor de los píxeles: Se utilizó la propiedad de reescalamiento que ofrece el ImageDataGenerator, esto se realiza para que los valores de un píxel este normalizado a 1, es decir ir de 0 a 1, en vez de 255
+-   Redimensionamiento de las imagenes: Para esto se definío un redimensionamiento de las imagenes del dataset a 150*150 píxeles para mantener consistencia entre los datasets.
+-   Data augmentation: Debido al tamaño reducido del dataset, se decidió aplicar un data augmentation que implica el transformar las imagenes del conjunto train del dataset, y así poder aumentar la cantidad de imagenes diferentes que recibe el modelo para su entrenamiento. Es por eso que lo aplicado para del conjunto de train fueron las siguientes transformaciónes:
+-   Rotation: Se estableció un rango posible de rotación de 180 grados.
+-   Width shift: Se definió que se pueda modificar la imagen en su ancho, es decir ampliarlo hasta un 30% de la imagen original.
+-   Height shift: Se definió que se pueda modificar la imagen en su altura, es decir estirarlo hasta un 30% de la imagen original.
+-   Shear: Se estableció un rango de cizallamiento de 0.3, lo que significa que las imagen original puede ser inclinada aleatoriamente en un rango de -0.3 a 0.3 radianes.
+-   Zoom: Se definió un rango de acercamiento de 0.2, lo cual es referente a que la imagen original puede ser modificada al acercar la imagen hasta un 20% de su tamaño original.
+-   Horizontal flip: Se estableció como verdadero este parámetro el cual indica que se puede modificar la imágen original al rotarla completamente en su eje horizontal
+
+Cabe mencionar que para cada modificación, cuando se generan las imagenes por medio del ImageDataGenerator se puede aplicar esta modificación de manera aleatoria, es decir, cuando se genera una imagen modificada hay una probabilidad que se aplique una modificación definida previamente. Y al analizar con detenimiento las imágenes existente en el conjunto de Train, se puede concluir que las modificación definidas previamente no implican un cambio en el significado de las imágenes originales. No se pierde su interpretación por lo cual se pueden utilizar para el entrenamiento del modelo.
+
+Otro atributo definido es el modo de clase que se aplica para la generación de imágenes, en este caso al contar con diferentes clases para la clasificación de imagenes se definió el atributo como 'categorical' para que procese las diferentes clases presentes.
+
+Las modificaciones de prepocesdo aplicadas para el conjuto Test y Validation fueron la normalización del valor de los píxeles y redimensionamiento de las imagenes, como se realizó para el conjunto Train. Esto se realizó para que todo el conjunto de imagenes tenga cohesividad y se pueda probar de manera efectiva. Solo se aplicarón estas modificaciones para que estos conjuntos sean representativos de imágenes que se puedan encontrar en el mundo real y se pueda mostrar la efectividad del modelo con certeza.
+
+La generación de imágenes por medio del data augmentation implica el definir un batch size, el cual es un tamaño de lote que representa el tamaño del número de imagenes nuevas que se pueden crear al llamar el generador de imágenes y que se utilizarán para entrenar el modelo. En este caso, para el preprocesador se definió un batch size de 2800 para el generador de imagenes del conjuto train y 600 para los conjuntos de Test y validation respectivamente. Con esto se entrenará el modelo con un conjunto de 2800 imagenes modificadas por cada vez que se llame el generador de imagenes.
+
+El preprocesado de los datos descrito se encuentra realizado en la carpeta de drive [Módulo 2](https://drive.google.com/drive/folders/14AKGu8siQM9iV9aBoJnX9msSJgTD-qDk?usp=sharing), especificamente en el archivo: DogEmotionClassificationModel_A01703556.ipynb. En el cual se codificó lo previamente descrito.
+
+Con propositos de demostración se mandó a llamar un es train generator y se guardaron los resultados en la capeta files > augmented.
+
+
+
+
 
 
 
