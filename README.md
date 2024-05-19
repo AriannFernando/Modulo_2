@@ -33,17 +33,17 @@ La separación fue hecha por medio de un script de python **DataSplit.py** el cu
 Para la división de las imágenes, se seleccionaron de manera aleatoria para poder respetar la representatividad de la muestra del dataset. 
 Contando con una estructura final del conjunto de imágenes de la siguiente forma:
 
-- ### Train
+- **Train**
   - Angry : 700 imágenes
   - Happy : 700 imágenes
   - Relaxed : 700 imágenes
   - Sad : 700 imágenes
-- ### Validation
+- **Validation**
   - Angry : 150 imágenes
   - Happy : 150 imágenes
   - Relaxed : 150 imágenes
   - Sad : 150 imágenes
-- ### Test
+- **Test**
   - Angry : 150 imágenes
   - Happy : 150 imágenes
   - Relaxed : 150 imágenes
