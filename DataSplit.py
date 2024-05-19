@@ -30,8 +30,8 @@ for class_directory in classes_directory:
     
     # Calcular el tamaño de cada conjunto (train, test, validation)
     total_images = len(images)
-    num_train = int(0.8 * total_images)
-    num_test = int(0.1 * total_images)
+    num_train = int(0.7 * total_images)
+    num_test = int(0.15 * total_images)
     num_validation = total_images - num_train - num_test
     
     # Crear las carpetas de destino dentro de la carpeta clase si no existen
