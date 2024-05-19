@@ -28,7 +28,7 @@ La estructura de data set esta por carpetas referentes a las clases de emociones
 Cada una de estas carpetas contiene 1000 imágenes de perros, de diferentes razas represenentado la respectiva emoción
 
 Para hacer la separación de los datos, decidí dividir la estructura de la carpeta original del dataset en carpetas para el training, validation y testing del modelo a construir
-La separación fue hecha por medio de un script de python DataSplit.py el cual genera una división dada por porcentajes, en donde la carpeta train contiene el 70% de las imagenes del dataset y tanto la carpeta de validation y test contienen el 15% respectivamente. La división fue hecha de esa forma por lo descrito en la siguiente (fuente)[https://www.baeldung.com/cs/train-test-datasets-ratio]. Debido al tamaño del dataset, al ser menor de 10000 imágenes, se realizó la división 70%, 15% y 15%.
+La separación fue hecha por medio de un script de python DataSplit.py el cual genera una división dada por porcentajes, en donde la carpeta train contiene el 70% de las imagenes del dataset y tanto la carpeta de validation y test contienen el 15% respectivamente. La división fue hecha de esa forma por lo descrito en la siguiente [fuente](https://www.baeldung.com/cs/train-test-datasets-ratio). Debido al tamaño del dataset, al ser menor de 10000 imágenes, se realizó la división 70%, 15% y 15%.
 
 Para la división de las imagenes, se seleccionaron de manera aleatoria para poder respetar la representatividad de la muestra del dataset. 
 Contando con una estructura final del conjunto de imagenes de la siguiente forma:
