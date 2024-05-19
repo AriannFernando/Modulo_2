@@ -81,4 +81,7 @@ Por último, se utilizaron las librerías de matplotlib y numpy para poder visua
 
 
 
+# Bibliografía
 
+A. Aylin Tokuç, “Baeldung,” Baeldung on Computer Science, Jan. 14, 2021. https://www.baeldung.com/cs/train-test-datasets-ratio (accessed May 19, 2024).
+‌
