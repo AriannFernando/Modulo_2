@@ -63,7 +63,7 @@ Para el prepocesamiento se realizó lo siguiente para el conjunto de **train**:
   -   **Zoom:** Se definió un rango de acercamiento de 0.1, lo cual es referente a que la imagen original puede ser modificada al acercar la imagen hasta un 10% de su tamaño original.
   -   **Horizontal flip:** Se estableció como verdadero este parámetro, el cual indica que se puede modificar la imagen original al rotarla completamente en su eje horizontal
 
-Cabe mencionar que para cada modificación, cuando se generan las imágenes por medio del ImageDataGenerator se puede aplicar esta modificación de manera aleatoria, es decir, cuando se genera una imagen modificada hay una probabilidad que se aplique una modificación definida previamente. Y al analizar con detenimiento las imágenes existente en el conjunto de **train**, se puede concluir que las modificaciones definidas previamente no implican un cambio en el significado de las imágenes originales. No se pierde su interpretación, por lo cual se pueden utilizar para el entrenamiento del modelo.
+Cabe mencionar que para cada modificación, cuando se generan las imágenes por medio del ImageDataGenerator se puede aplicar esta modificación de manera aleatoria, es decir, cuando se genera una imagen modificada hay una probabilidad que se aplique una modificación definida previamente. Y al analizar con detenimiento las imágenes existentes en el conjunto de **train**, se puede concluir que las modificaciones definidas previamente no implican un cambio en el significado de las imágenes originales. No se pierde su interpretación, por lo cual se pueden utilizar en el entrenamiento del modelo. Con esto se busca mejorar la calidad de las predicciones y evitar problemas como el overfitting, donde el modelo se adapta a las imágenes existentes en vez de aprender.
 
 Otro atributo definido es el modo de clase que se aplica para la generación de imágenes, en este caso al contar con diferentes clases para la clasificación de imágenes se definió el atributo como 'categorical' para que procese las diferentes clases presentes.
 
@@ -81,7 +81,14 @@ Por último, se utilizaron las librerías de matplotlib y numpy para poder visua
 
 
 
-# Bibliografía
+# Referencias bibliográficas
 
-A. Aylin Tokuç, “Baeldung,” Baeldung on Computer Science, Jan. 14, 2021. https://www.baeldung.com/cs/train-test-datasets-ratio (accessed May 19, 2024).
+K. K. Pal and K. S. Sudeep, "Preprocessing for image classification by convolutional neural networks," 2016 IEEE International Conference on Recent Trends in Electronics, Information & Communication Technology (RTEICT), Bangalore, India, 2016, pp. 1778-1781, doi: 10.1109/RTEICT.2016.7808140.
+
+Gu, Shanqing; Pednekar, Manisha; and Slater, Robert, "Improve Image Classification Using Data Augmentation and Neural Networks," 2019 SMU Data Science Review: Vol. 2: No. 2, Article 1. https://scholar.smu.edu/datasciencereview/vol2/iss2/1 
+
+J.Rama, C.Nalini and A.Kumaravel, "Image pre-processing: enhance the performance of medical image classification using various data augmentation technique," ACCENTS Transactions on Image Processing and Computer Vision, vol. 5, (14), pp. 7-14, 2019. doi: https://doi.org/10.19101/TIPCV.2018.413001.
+
+A. Aylin Tokuç, “Baeldung,” Baeldung on Computer Science, Jan. 14, 2021. https://www.baeldung.com/cs/train-test-datasets-ratio.
+
 ‌
