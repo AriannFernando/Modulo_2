@@ -19,7 +19,7 @@ El dataset contiene imagenes las cuales están categorizadas por clases referent
 
 La construcción del dataset fue por medio de imagenes recopiladas de varias fuentes en línea, como Kaggle y motores de búsqueda de imágenes. Y para asegurar la representatividad correcta de los datos, se seleccionaron imágenes de una variedad de razas de perros.
 
-La estructura de data set esta por carpetas referentes a las clases de emociones:
+La estructura del dataset esta por carpetas referentes a las clases de emociones:
 - Angry
 - Happy
 - Relaxed
@@ -27,30 +27,29 @@ La estructura de data set esta por carpetas referentes a las clases de emociones
 
 Cada una de estas carpetas contiene 1000 imágenes de perros, de diferentes razas represenentado la respectiva emoción
 
-Para hacer la separación de los datos, decidí dividir la estructura de la carpeta original del dataset en carpetas para el training, validation y testing del modelo a construir
+Para hacer la separación de los datos para poder entrenar el modelo, se dividió la estructura de la carpeta original del dataset en carpetas para el training, validation y testing del modelo a construir
 La separación fue hecha por medio de un script de python DataSplit.py el cual genera una división dada por porcentajes, en donde la carpeta train contiene el 70% de las imagenes del dataset y tanto la carpeta de validation y test contienen el 15% respectivamente. La división fue hecha de esa forma por lo descrito en la siguiente [fuente](https://www.baeldung.com/cs/train-test-datasets-ratio). Debido al tamaño del dataset, al ser menor de 10000 imágenes, se realizó la división 70%, 15% y 15%.
 
 Para la división de las imagenes, se seleccionaron de manera aleatoria para poder respetar la representatividad de la muestra del dataset. 
 Contando con una estructura final del conjunto de imagenes de la siguiente forma:
 
 ### Train
-- Angry : 800 imágenes
-- Happy : 800 imágenes
-- Relaxed : 800 imágenes
-- Sad : 800 imágenes
+- Angry : 700 imágenes
+- Happy : 700 imágenes
+- Relaxed : 700 imágenes
+- Sad : 700 imágenes
 ### Validation
-- Angry : 100 imágenes
-- Happy : 100 imágenes
-- Relaxed : 100 imágenes
-- Sad : 100 imágenes
+- Angry : 150 imágenes
+- Happy : 150 imágenes
+- Relaxed : 150 imágenes
+- Sad : 150 imágenes
 ### Test
-- Angry : 100 imágenes
-- Happy : 100 imágenes
-- Relaxed : 100 imágenes
-- Sad : 100 imágenes
+- Angry : 150 imágenes
+- Happy : 150 imágenes
+- Relaxed : 150 imágenes
+- Sad : 150 imágenes
 
 ## Preprocesado de los datos
-
 
 
 
