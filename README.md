@@ -80,6 +80,8 @@ Por último, se utilizaron las librerías de matplotlib y numpy para poder visua
 ![Imagen de referencia](files/augmented/Evidence.png)
 
 
+## Implementación del modelo
+
 
 # Referencias bibliográficas
 
