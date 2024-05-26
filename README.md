@@ -81,16 +81,18 @@ Por último, se utilizaron las librerías de matplotlib y numpy para poder visua
 
 
 ## Implementación del modelo
-
+Para poder implementar el modelo, se utilizó transfer learning para poder generar una red neuronal convucional para poder generar predicciones más precisisas, p
+## Evaluación inicial del modelo
 
 # Referencias bibliográficas
 
-K. K. Pal and K. S. Sudeep, "Preprocessing for image classification by convolutional neural networks," 2016 IEEE International Conference on Recent Trends in Electronics, Information & Communication Technology (RTEICT), Bangalore, India, 2016, pp. 1778-1781, doi: 10.1109/RTEICT.2016.7808140.
+[1] K. K. Pal and K. S. Sudeep, "Preprocessing for image classification by convolutional neural networks," 2016 IEEE International Conference on Recent Trends in Electronics, Information & Communication Technology (RTEICT), Bangalore, India, 2016, pp. 1778-1781, doi: 10.1109/RTEICT.2016.7808140.
 
-Gu, Shanqing; Pednekar, Manisha; and Slater, Robert, "Improve Image Classification Using Data Augmentation and Neural Networks," 2019 SMU Data Science Review: Vol. 2: No. 2, Article 1. https://scholar.smu.edu/datasciencereview/vol2/iss2/1 
+[2] Gu, Shanqing; Pednekar, Manisha; and Slater, Robert, "Improve Image Classification Using Data Augmentation and Neural Networks," 2019 SMU Data Science Review: Vol. 2: No. 2, Article 1. https://scholar.smu.edu/datasciencereview/vol2/iss2/1 
 
-J.Rama, C.Nalini and A.Kumaravel, "Image pre-processing: enhance the performance of medical image classification using various data augmentation technique," ACCENTS Transactions on Image Processing and Computer Vision, vol. 5, (14), pp. 7-14, 2019. doi: https://doi.org/10.19101/TIPCV.2018.413001.
+[3] J.Rama, C.Nalini and A.Kumaravel, "Image pre-processing: enhance the performance of medical image classification using various data augmentation technique," ACCENTS Transactions on Image Processing and Computer Vision, vol. 5, (14), pp. 7-14, 2019. doi: https://doi.org/10.19101/TIPCV.2018.413001.
 
-A. Aylin Tokuç, “Baeldung,” Baeldung on Computer Science, Jan. 14, 2021. https://www.baeldung.com/cs/train-test-datasets-ratio.
+[4] A. Aylin Tokuç, “Baeldung,” Baeldung on Computer Science, Jan. 14, 2021. https://www.baeldung.com/cs/train-test-datasets-ratio.
 
+[5] Akhand, M.A.H.; Roy, S.;Siddique, N.; Kamal, M.A.S.;Shimamura, T. Facial Emotion Recognition Using Transfer Learning in the Deep CNN. Electronics 2021, 10, 1036. https://doi.org/10.3390/electronics10091036
 ‌
