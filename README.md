@@ -108,7 +108,7 @@ Además de utilizar la arquitectura VGG-16 el modelo creado utiliza las siguient
 
 5. **Salida**: por ultimo se genera una capa densa definida como salida con la función de activación softmax la cual genera una salida con una capa de 4 neuronas para la determinación de la clasificación basado en una función softmax
 
-### Pérdida
+### Loss
 Para la función de perdida se utilizó categorical crossentropy, la cual genera un calculo de perdida basado en como disminuye a medida que la probabilidad predicha converge hacia el label real. Mide el rendimiento de un modelo de clasificación cuya salida predicha es un valor de probabilidad entre las clases definidas.
 
 ### Función de optimización
