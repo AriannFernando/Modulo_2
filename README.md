@@ -104,9 +104,9 @@ Además de utilizar la arquitectura VGG-16 el modelo creado utiliza las siguient
 
 3. **Dense**: el modelo cuenta con 2 capas densas las cuales cuentan con 1024 y 256 neuronas respectivamente, y las cuales cuentan con una función de activación "relu" la cual se activa si el valor de la función es positivo entonces toma el valor de la x, además de un regularizers lo cuales añaden un término de penalización al costo del modelo. Esto se hizo para desalentar el modelo a aprender pesos grandes. Lo cual se hace para evitar el sobreajuste
 
-4.**Dropout**: dentro de las capas densas se encuentran las capas dropout las cuales omiten aleatoriamente algunas neuronas para evitar que el modelo se vuelva dependiente de cualquier neurona en particular.
+4. **Dropout**: dentro de las capas densas se encuentran las capas dropout las cuales omiten aleatoriamente algunas neuronas para evitar que el modelo se vuelva dependiente de cualquier neurona en particular.
 
-5.**Salida**: por ultimo se genera una capa densa definida como salida con la función de activación softmax la cual genera una salida con una capa de 4 neuronas para la determinación de la clasificación basado en una función softmax
+5. **Salida**: por ultimo se genera una capa densa definida como salida con la función de activación softmax la cual genera una salida con una capa de 4 neuronas para la determinación de la clasificación basado en una función softmax
 
 ### Pérdida
 Para la función de perdida se utilizó categorical crossentropy, la cual genera un calculo de perdida basado en como disminuye a medida que la probabilidad predicha converge hacia el label real. Mide el rendimiento de un modelo de clasificación cuya salida predicha es un valor de probabilidad entre las clases definidas.
