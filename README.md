@@ -29,7 +29,7 @@ Para hacer la separación de los datos para poder entrenar el modelo, se dividi�
 La separación fue hecha por medio de un script de python **DataSplit.py** el cual genera una división dada por porcentajes, en donde la carpeta **train** contiene el 70% de las imágenes del dataset y tanto la carpeta de **validation** y **test** contienen el 15% respectivamente. La división fue hecha de esa forma por lo descrito en la siguiente [fuente](https://www.baeldung.com/cs/train-test-datasets-ratio). Debido al tamaño del dataset, al ser menor de 10000 imágenes, se realizó la división 70%, 15% y 15%.
 
 Para la división de las imágenes, se seleccionaron de manera aleatoria para poder respetar la representatividad de la muestra del dataset. 
-Contando con una estructura final del conjunto de imágenes de la siguiente forma:
+Contando con una estructura del conjunto de imágenes de la siguiente forma:
 
 - **Train**
   - Angry : 700 imágenes
@@ -47,6 +47,19 @@ Contando con una estructura final del conjunto de imágenes de la siguiente form
   - Relaxed : 150 imágenes
   - Sad : 150 imágenes
 
+Al realizar un analisis del conjunto de datos de las imagenes generadas, se puede observar muchas imagenes que generan ruido al momento de clasificar las emociones de los perros, ya que tanto la categoría relaxed y sad generan muchas imágenes que son demasiado parecidas o se encuentran en categorías diferentes por lo cual basado en lo presentado por Chen, H. [6] en donde un data set con miles de imágenes fue procesado al punto de tener tres categorías de emociones de perros, basadas en las expresiones más fuertes  y que se contara con un dataset limpio donde cualquier experto en el área pudiese identificar la emoción. Por lo cual los datos fueron segmentados aún más y se generó la siguiente estructura del conjunto de imágenes:
+
+- **Train**
+  - Angry : 700 imágenes
+  - Sad : 700 imágenes
+- **Validation**
+  - Angry : 150 imágenes
+  - Sad : 150 imágenes
+- **Test**
+  - Angry : 150 imágenes
+  - Sad : 150 imágenes
+Contando con un conjunto de datos de dos categorías donde las imágenes en esas dos categorías estan limpias permitiendo una mejor demostración del modelo propuesto.
+
 ## Preprocesamiento de los datos
 Para poder entrenar el modelo de manera correcta se deben de preparar las imágenes para poder maximizar la posible efectividad de los resultados de este mismo. Después de realizar una investigación, K. Pal [1] describe posibles modificaciones de preprocesamiento de los datos para poder mejorar la calidad de las predicciones generadas por un modelo de clasificación de imágenes.
 Para el modelo presentado se utiliza ImageDataGenerator de la librería TensorFlow, dedicada a machine learnig.
@@ -54,10 +67,8 @@ Para el prepocesamiento se realizó lo siguiente para el conjunto de **train**:
 - **Normalización del valor de los píxeles:** Se utilizó la propiedad de re-escalamiento que ofrece el ImageDataGenerator, esto se realiza para que los valores de un píxel este normalizado a 1, es decir ir de 0 a 1, en vez de 255
 - **Redimensionamiento de las imágenes:** Para esto se definió un redimensionamiento de las imágenes del dataset a 150*150 píxeles para mantener consistencia entre los datasets.
 -   **Data augmentation:** Debido al tamaño reducido del dataset, se decidió aplicar un data augmentation, que significa el transformar las imágenes del conjunto **train** del dataset, y así poder aumentar la cantidad de imágenes diferentes que recibe el modelo para su entrenamiento. Es por eso que lo aplicado para del conjunto de “train” fueron las siguientes transformaciones:
-  -   **Rotation:** Se estableció un rango posible de rotación de 180 grados.
-  -   **Width shift:** Se definió que se pueda modificar la imagen en su ancho, es decir, ampliarlo hasta un 30% de la imagen original.
-  -   **Height shift:** Se definió que se pueda modificar la imagen en su altura, es decir, estirarlo hasta un 30% de la imagen original.
-  -   **Shear:** Se estableció un rango de cizallamiento de 0.1, lo que significa que la imagen original puede ser inclinada aleatoriamente en un rango de -0.1 a 0.1 radianes.
+  -   **Width shift:** Se definió que se pueda modificar la imagen en su ancho, es decir, ampliarlo hasta un 20% de la imagen original.
+  -   **Height shift:** Se definió que se pueda modificar la imagen en su altura, es decir, estirarlo hasta un 20% de la imagen original.
   -   **Zoom:** Se definió un rango de acercamiento de 0.1, lo cual es referente a que la imagen original puede ser modificada al acercar la imagen hasta un 10% de su tamaño original.
   -   **Horizontal flip:** Se estableció como verdadero este parámetro, el cual indica que se puede modificar la imagen original al rotarla completamente en su eje horizontal
 
@@ -127,5 +138,7 @@ Para este modelo inicial se definieron 20 epochs donde se analizaran sus resulta
 
 [4] Akhand, M.A.H.; Roy, S.;Siddique, N.; Kamal, M.A.S.;Shimamura, T. Facial Emotion Recognition Using Transfer Learning in the Deep CNN. Electronics 2021, 10, 1036. https://doi.org/10.3390/electronics10091036
 
-[5]Sushma, L., & Lakshmi, K. P. 2020. "An analysis of convolution neural network for image classification using different models". International Journal of Engineering Research and Technology (IJERT), 9(10).
+[5] Sushma, L., & Lakshmi, K. P. 2020. "An analysis of convolution neural network for image classification using different models". International Journal of Engineering Research and Technology (IJERT), 9(10).
+
+[6] Chen, H.-Y.; Lin, C.-H.; Lai,J.-W.; Chan, Y.-K. "Convolutional Neural Network-Based Automated System for Dog Tracking and Emotion Recognition in Video Surveillance". Appl. Sci. 2023, 13,4596.https://doi.org/10.3390/app13074596
 ‌
