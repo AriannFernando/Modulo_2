@@ -114,7 +114,7 @@ Para la función de perdida se utilizó categorical crossentropy, la cual genera
 ### Función de optimización
 La función de optimización que se utilizó es el RMSprop (Root Mean Square Propagation) el cual usa una media móvil ponderada del cuadrado de los gradientes y divide el gradiente de cada parámetro por la raíz cuadrada de esta media.
 
-Con esto tomando en cuenta el batchsize definido previamente se determina el número de steps que se realizan por epoch, los cuales su multiplicación deberá de dar un resultado igual al total de imágenes de set de train, o test, o validation. 
+Con esto tomando en cuenta el batchsize definido previamente se determina el número de steps que se realizan por epoch, los cuales su multiplicación deberá de dar un resultado igual al total de imágenes de set de train, o test, o validation. Con una taza de aprendizaje definida de 1e-5 que define el peso de cuanto se actualiza el resultado del ajuste del aprendizaje
 
 Para este modelo inicial se definieron 20 epochs donde se analizaran sus resultados. Todo el modelo desarrollado se encuentra en [Módulo 2](https://drive.google.com/drive/folders/14AKGu8siQM9iV9aBoJnX9msSJgTD-qDk?usp=sharing),
 
