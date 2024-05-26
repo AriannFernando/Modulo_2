@@ -144,8 +144,17 @@ Esto para evaluar el desempeño del modelo generado. Por lo tanto en cuanto a lo
 
 ### Precisión, Recall y Puntaje F1
 
+Además de esto para obtener los resultados esperados de  precisión, recall, y el puntaje F se requiere generar una matriz de confusión la cual mide el desempeño de las predicciones realizadas por el modelo, donde se calcula por medio de TP, TN, FP y FN. 
 
-Además de esto para obtener los resultados esperados de  precisión, recall, y el puntaje F se requiere generar una matriz de confusión la cual mide el desempeño de las predicciones realizadas por el modelo, donde se calcula por medio de TP, TN, FP y FN
+- **TP (True Positive)**: Estos son los casos en los que el modelo predijo correctamente la clase positiva. Es decir, el modelo predijo que la muestra pertenece a la clase positiva, y esa predicción fue correcta cuando se compara con la verdad.
+
+- **TN (True Negative)**: Estos son los casos en los que el modelo predijo correctamente la clase negativa. Es decir, el modelo predijo que la muestra no pertenecía a la clase positiva, y esa predicción fue correcta cuando se compara con la verdad.
+
+- **FP (False Positive)**: Estos son los casos en los que el modelo predijo incorrectamente la clase positiva. Es decir, el modelo predijo que la muestra pertenecía a la clase positiva, pero esa predicción fue incorrecta cuando se compara con la verdad. 
+
+- **FN (False Negative)**: Estos son los casos en los que el modelo predijo incorrectamente la clase negativa. Es decir, el modelo predijo que la muestra no pertenecía a la clase positiva, pero esa predicción fue incorrecta cuando se compara con la verdad.
+
+## Análisis de los resultados obtenidos
 
 
 # Referencias bibliográficas
