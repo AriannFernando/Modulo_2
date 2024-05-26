@@ -6,8 +6,6 @@ Ariann Fernando Arriaga Alcántara A01703556
 
 En el siguiente repositorio se alojarán todos los archivos desarrollados referentes al modelo para el Módulo 2 de la materia de Desarrollo de aplicaciones avanzadas de ciencias computacionales TC3002B
 
-Todos los avances presentados en este repositorio se encuentran disponibles en la siguiente carpeta de Google Drive: [Módulo 2](https://drive.google.com/drive/folders/14AKGu8siQM9iV9aBoJnX9msSJgTD-qDk?usp=sharing)
-
 
 # Clasificación de emociones de perros
 
@@ -116,8 +114,7 @@ La función de optimización que se utilizó es el RMSprop (Root Mean Square Pro
 
 Con esto tomando en cuenta el batchsize definido previamente se determina el número de steps que se realizan por epoch, los cuales su multiplicación deberá de dar un resultado igual al total de imágenes de set de train, o test, o validation. Con una taza de aprendizaje definida de 1e-5 que define el peso de cuanto se actualiza el resultado del ajuste del aprendizaje
 
-Para este modelo inicial se definieron 20 epochs donde se analizaran sus resultados. Todo el modelo desarrollado se encuentra en [Módulo 2](https://drive.google.com/drive/folders/14AKGu8siQM9iV9aBoJnX9msSJgTD-qDk?usp=sharing),
-
+Para este modelo inicial se definieron 20 epochs donde se analizaran sus resultados. Todo el modelo desarrollado se encuentra en el archivo del repositorio **DogEmotionClassificationModel.py**
 ## Evaluación inicial del modelo
 
 # Referencias bibliográficas
