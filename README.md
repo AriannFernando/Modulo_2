@@ -69,7 +69,7 @@ Las modificaciones de preprocesamiento aplicadas para el conjunto **test** y **v
 
 La generación de imágenes por medio del data augmentation implica el definir un batch size, el cual es un tamaño de lote que representa el tamaño del número de imágenes nuevas que se pueden crear al llamar el generador de imágenes y que se utilizarán para entrenar el modelo. En este caso, para el preprocesador se definió un batch size de 50 para el generador de imágenes del conjunto train y 50 para los conjuntos de **test** y **validation** respectivamente. Con esto se entrenará el modelo con un conjunto de 2100 imágenes modificadas por cada vez que se llame el generador de imágenes.
 
-El preprocesamiento de los datos descrito se encuentra realizado en el archivo: **DogEmotionClassificationModel.py.** En el cual se implementó un código de lo previamente descrito en un notebook de python.
+El preprocesamiento de los datos descrito se encuentra realizado en el archivo: **DogEmotionClassificationModel_A01703556.ipynb.** En el cual se implementó un código de lo previamente descrito en un notebook de python.
 
 Con propósitos de demostración se mandó a llamar el generador de imágenes para el conjunto train y se guardaron los resultados en la capeta **files > augmented**. Se utilizó un batch size de 50 con el objetivo de demostrar él data augmentation aplicado para el preprocesamiento de los conjuntos de datos.
 Por último, se utilizaron las librerías de matplotlib y numpy para poder visualizar las imágenes creadas por el generador de imágenes con el lote previamente definido. Como se muestra a continuación:
