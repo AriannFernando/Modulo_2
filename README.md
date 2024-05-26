@@ -132,7 +132,21 @@ Con esto tomando en cuenta el batchsize definido previamente se determina el nú
 
 Para este modelo inicial se definieron 20 epochs donde se analizaran sus resultados. Todo el modelo desarrollado se encuentra en el archivo del repositorio **DogEmotionClassificationModel.py**
 ## Evaluación inicial del modelo
-Para evaluar el modelo inicialmente se entrenó con 40 epochs con un 131 steps por epoch, y se recopilaron los datos de accuracy y loss para la validation data, 
+Para evaluar el modelo inicialmente se entrenó con 20 epochs con un 131 steps por epoch, y se recopilaron los datos de accuracy y loss para el train, validation y test data, basado en lo descrito por A. Hussain et al. [7] donde se obtienen los resultados de accuracy para el modelo de detección de bienestar en los perros. Describen para además de esto 3 métricas precisión, recall, y el puntaje F1.
+
+
+Esto para evaluar el desempeño del modelo generado. Por lo tanto en cuanto a los resultados obtenidos por el modelo previamente descrito se obtuvo lo siguientes resultados:
+### Train vs validation Accuracy
+### Train vs validation Loss
+### Test Accuracy
+
+### Confusion Matrix
+
+### Precisión, Recall y Puntaje F1
+
+
+Además de esto para obtener los resultados esperados de  precisión, recall, y el puntaje F se requiere generar una matriz de confusión la cual mide el desempeño de las predicciones realizadas por el modelo, donde se calcula por medio de TP, TN, FP y FN
+
 
 # Referencias bibliográficas
 
@@ -147,4 +161,6 @@ Para evaluar el modelo inicialmente se entrenó con 40 epochs con un 131 steps p
 [5] Sushma, L., & Lakshmi, K. P. 2020. "An analysis of convolution neural network for image classification using different models". International Journal of Engineering Research and Technology (IJERT), 9(10).
 
 [6] Chen, H.-Y.; Lin, C.-H.; Lai,J.-W.; Chan, Y.-K. "Convolutional Neural Network-Based Automated System for Dog Tracking and Emotion Recognition in Video Surveillance". Appl. Sci. 2023, 13,4596.https://doi.org/10.3390/app13074596
+
+[7]A. Hussain, S. Ali, Abdullah, and H.-C. Kim, “Activity Detection for the Wellbeing of Dogs Using Wearable Sensors Based on Deep Learning,” IEEE Access, vol. 10, pp. 53153–53163, 2022, doi: https://doi.org/10.1109/ACCESS.2022.3174813.
 ‌
