@@ -58,6 +58,8 @@ Al realizar un analisis del conjunto de datos de las imagenes generadas, se pued
 - **Test**
   - Angry : 150 imágenes
   - Sad : 150 imágenes
+ 
+
 Contando con un conjunto de datos de dos categorías donde las imágenes en esas dos categorías estan limpias permitiendo una mejor demostración del modelo propuesto.
 
 ## Preprocesamiento de los datos
