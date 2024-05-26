@@ -51,12 +51,15 @@ Al realizar un analisis del conjunto de datos de las imagenes generadas, se pued
 
 - **Train**
   - Angry : 700 imágenes
+  - Happy : 700 imágenes
   - Sad : 700 imágenes
 - **Validation**
   - Angry : 150 imágenes
+  - Happy : 150 imágenes
   - Sad : 150 imágenes
 - **Test**
   - Angry : 150 imágenes
+  - Happy : 150 imágenes
   - Sad : 150 imágenes
  
 
@@ -129,6 +132,7 @@ Con esto tomando en cuenta el batchsize definido previamente se determina el nú
 
 Para este modelo inicial se definieron 20 epochs donde se analizaran sus resultados. Todo el modelo desarrollado se encuentra en el archivo del repositorio **DogEmotionClassificationModel.py**
 ## Evaluación inicial del modelo
+Para evaluar el modelo inicialmente se entrenó con 40 epochs con un 131 steps por epoch, y se recopilaron los datos de accuracy y loss para la validation data, 
 
 # Referencias bibliográficas
 
