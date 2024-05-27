@@ -6,7 +6,7 @@ Ariann Fernando Arriaga Alcántara A01703556
 
 En el siguiente repositorio se alojarán todos los archivos desarrollados referentes al modelo para el Módulo 2 de la materia de Desarrollo de aplicaciones avanzadas de ciencias computacionales TC3002B
 
-Todos los avances que se encuentran en este repositorio fueron desarrollados dentro de la siguiente carpeta de drive: ["Modulo 2"](https://drive.google.com/drive/folders/14AKGu8siQM9iV9aBoJnX9msSJgTD-qDk?usp=drive_link)
+Todos los avances que se encuentran en este repositorio fueron desarrollados dentro de la siguiente carpeta de drive: [Modulo 2](https://drive.google.com/drive/folders/14AKGu8siQM9iV9aBoJnX9msSJgTD-qDk?usp=drive_link)
 
 # Clasificación de emociones de perros
 
@@ -132,7 +132,7 @@ Contando con el modelo implementado con la siguiente estructura:
 
 ![Imagen de referencia0](files/reference/Evidence0.png)
 
-Para este modelo inicial se definieron 40 epochs donde se analizaran sus resultados. Todo el modelo desarrollado se encuentra en el archivo del repositorio **DogEmotionClassificationModel_A01703556.ipynb** al igual que en: ["Model"](https://colab.research.google.com/drive/120kXTir0JoglEGftlPs8CDRKJGVa98m7?usp=sharing)
+Para este modelo inicial se definieron 40 epochs donde se analizaran sus resultados. Todo el modelo desarrollado se encuentra en el archivo del repositorio **DogEmotionClassificationModel_A01703556.ipynb** al igual que en: [Modelo](https://colab.research.google.com/drive/120kXTir0JoglEGftlPs8CDRKJGVa98m7?usp=sharing)
 
 ## Evaluación inicial del modelo
 Para evaluar el modelo inicialmente se entrenó con 40 epochs con un 131 steps por epoch, y se recopilaron los datos de accuracy y loss para el train, validation y test data, basado en lo descrito por A. Hussain et al. [7] donde se obtienen los resultados de accuracy para el modelo de detección de bienestar en los perros. Describen, además de esto, 3 métricas: precisión, recall, y el puntaje F1.
