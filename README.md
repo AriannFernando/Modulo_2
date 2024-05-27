@@ -48,7 +48,7 @@ Contando con una estructura del conjunto de imágenes de la siguiente forma:
   - Relaxed : 150 imágenes
   - Sad : 150 imágenes
 
-Al realizar un analisis del conjunto de datos de las imagenes generadas, se puede observar muchas imagenes que generan ruido al momento de clasificar las emociones de los perros, ya que tanto la categoría relaxed y sad generan muchas imágenes que son demasiado parecidas o se encuentran en categorías diferentes por lo cual basado en lo presentado por Chen, H. et al. [6] en donde un data set con miles de imágenes fue procesado al punto de tener tres categorías de emociones de perros, basadas en las expresiones más fuertes  y que se contara con un dataset limpio donde cualquier experto en el área pudiese identificar la emoción. Por lo cual los datos fueron segmentados aún más y se generó la siguiente estructura del conjunto de imágenes:
+Al realizar un análisis del conjunto de datos de las imágenes generadas, se puede observar muchas imágenes que generan ruido al momento de clasificar las emociones de los perros, ya que tanto la claseelaxed y sad generan muchas imágenes que son demasiado parecidas o se encuentran en categorías diferentes. Por lo cual basado en lo presentado por Chen, H. et al. [6]. En donde un data set con miles de imágenes fue procesado al punto de tener tres categorías de emociones de perros, basadas en las expresiones más fuertes y que se contara con un dataset limpio donde cualquier experto en el área pudiese identificar la emoción. Por lo cual los datos fueron segmentados aún más y se generó la siguiente estructura del conjunto de imágenes:
 
 - **Train**
   - Angry : 700 imágenes
@@ -64,7 +64,7 @@ Al realizar un analisis del conjunto de datos de las imagenes generadas, se pued
   - Sad : 150 imágenes
  
 
-Contando con un conjunto de datos de dos categorías donde las imágenes en esas dos categorías estan limpias permitiendo una mejor demostración del modelo propuesto.
+Contando con un conjunto de datos de dos clases donde las imágenes en esas tres categorías que se encuentran limpias, permitiendo una mejor demostración del modelo propuesto.
 
 ## Preprocesamiento de los datos
 Para poder entrenar el modelo de manera correcta se deben de preparar las imágenes para poder maximizar la posible efectividad de los resultados de este mismo. Después de realizar una investigación, K. Pal [1] describe posibles modificaciones de preprocesamiento de los datos para poder mejorar la calidad de las predicciones generadas por un modelo de clasificación de imágenes.
@@ -86,16 +86,15 @@ Las modificaciones de preprocesamiento aplicadas para el conjunto **test** y **v
 
 La generación de imágenes por medio del data augmentation implica el definir un batch size, el cual es un tamaño de lote que representa el tamaño del número de imágenes nuevas que se pueden crear al llamar el generador de imágenes y que se utilizarán para entrenar el modelo. En este caso, para el preprocesador se definió un batch size de 30 para el generador de imágenes del conjunto train y 30 para los conjuntos de **test** y **validation** respectivamente. Con esto se entrenará el modelo con un conjunto de 2100 imágenes modificadas por cada vez que se llame el generador de imágenes.
 
-El preprocesamiento de los datos descrito se encuentra realizado en el archivo: **DogEmotionClassificationModel_A01703556.ipynb.** En el cual se implementó un código de lo previamente descrito en un notebook de python.
+El preprocesamiento de los datos descrito se encuentra realizado en el archivo: **DogEmotionClassificationPreprocess.ipynb.** En el cual se implementó un código de lo previamente descrito en un notebook de python.
 
 Con propósitos de demostración se mandó a llamar el generador de imágenes para el conjunto train y se guardaron los resultados en la capeta **files > augmented**. Se utilizó un batch size de 50 con el objetivo de demostrar él data augmentation aplicado para el preprocesamiento de los conjuntos de datos.
 Por último, se utilizaron las librerías de matplotlib y numpy para poder visualizar las imágenes creadas por el generador de imágenes con el lote previamente definido. Como se muestra a continuación:
 
 ![Imagen de referencia](files/augmented/Evidence.png)
 
-
 ## Implementación del modelo
-Para poder implementar el modelo, se utilizó transfer learning para poder generar una red neuronal convolucional que produzca predicciones más precisas y certeras. Al realizar una investigación a profundidad de los mejores modelos basados en sus resultados para la clasificación de imagenes basadas en las emociones expresadas en rostros, lo cual es una aproximación a la temática de la clasificación de emociones de perros, M.A.H Akhand et al. [4] describen un modelo de aprendizaje profundo basado en la arquitectura VGG-16 para la detección de emociones con los mejores resultados descritos. De acuerdo a lo presentado por Sushma, L [5], la arquitectura VGG-16 representa una variante de la red VGG net, una arquitectura de Red Neuronal Convolucional (CNN) que se utilizó para ganar el concurso ILSVRC (ImageNet) en 2014.
+Para poder implementar el modelo, se utilizó transfer learning para poder generar una red neuronal convolucional que produzca predicciones más precisas y certeras. Al realizar una investigación en profundidad de los mejores modelos basados en sus resultados para la clasificación de imágenes basadas en las emociones expresadas en rostros. Lo cual es una aproximación a la temática de la clasificación de emociones de perros, M.A.H Akhand et al. [4] describen un modelo de aprendizaje profundo basado en la arquitectura VGG-16 para la detección de emociones con los mejores resultados descritos. De acuerdo a lo presentado por Sushma, L [5], la arquitectura VGG-16 representa una variante de la red VGG net, una arquitectura de Red Neuronal Convolucional (CNN) que se utilizó para ganar el concurso ILSVRC (ImageNet) en 2014.
 
 **VGG16** es una arquitectura de Red Neuronal Convolucional (CNN) desarrollada por el Visual Geometry Group de la Universidad de Oxford. Fue utilizada para ganar el concurso ILSVRC (ImageNet) en 2014. La arquitectura VGG16 es conocida por su simplicidad y profundidad, ya que consiste en 16 capas con pesos entrenables, la razón del nombre de la arquitectura.
 
@@ -111,21 +110,21 @@ Características principales de VGG16:
 
 Además de utilizar la arquitectura VGG-16 el modelo creado utiliza las siguientes capas con base a los artículos descritos previamente:
 
-1. **Base model**: Es la capa base del modelo secuencial, la cual es donde esta determinada la arquitectura VGG-16 descrita previamente.
+1. **Base model**: Es la capa base del modelo secuencial, la cual es donde está determinada la arquitectura VGG-16 descrita previamente.
 
-2. **Flatten**:El modelo cuenta con una capa Flatter en una red neuronal que convierte una entrada multidimensional en un vector unidimensional, facilitando el procesamiento por las capas densas.
+2. **Flatten**:El modelo cuenta con una capa Flatten en una red neuronal que convierte una entrada multidimensional en un vector unidimensional, facilitando el procesamiento por las capas densas.
 
-3. **Dense**: El modelo cuenta con 2 capas densas las cuales cuentan con 256 y 128 neuronas respectivamente, y las cuales cuentan con una función de activación "relu" la cual se activa si el valor de la función es positivo entonces toma el valor de la x, además de un regularizer el cual añade un término de penalización al costo del modelo. Esto se hizo para desalentar el modelo a aprender pesos grandes. Lo cual se hace para evitar el sobreajuste.
+3. **Dense**: El modelo cuenta con 2 capas densas las cuales cuentan con 256 y 128 neuronas respectivamente, y las cuales cuentan con una función de activación "relu" la cual se activa si el valor de la función es positivo entonces toma el valor de la x, además de un regularizer el cual añade un término de penalización al costo del modelo. Esto se hizo para desalentar el modelo a aprender pesos grandes. Lo cual se hace para evitar el sobre ajuste.
 
-4. **Dropout**: Entre las capas densas definidas encuentran las capas dropout las cuales omiten aleatoriamente algunas neuronas para evitar que el modelo se vuelva dependiente de cualquier neurona en particular. Con un valor de activación de 0.4 esto basandose en el trabajo descrito por Chen, H. et al. [6]
+4. **Dropout**: Entre las capas densas definidas encuentran las capas dropout las cuales omiten aleatoriamente algunas neuronas para evitar que el modelo se vuelva dependiente de cualquier neurona en particular. Con un valor de activación de 0.4 esto basándose en el trabajo descrito por Chen, H. et al. [6]
 
-5. **Salida**: por ultimo se genera una capa densa definida como salida con la función de activación softmax la cual genera una salida con una capa de 3 neuronas para la determinación de la del resultado de la clasificación basado en una función softmax.
+5. **Salida**: por último se genera una capa densa definida como salida con la función de activación softmax la cual genera una salida con una capa de 3 neuronas para la determinación de la del resultado de la clasificación basado en una función softmax.
 
 ### Loss
-Para la función de perdida se utilizó categorical crossentropy, la cual genera un calculo de perdida basado en como disminuye a medida que la probabilidad predicha converge hacia el label real. Mide el rendimiento de un modelo de clasificación cuya salida predicha es un valor de probabilidad entre las clases definidas.
+Para la función de perdida se utilizó categorical crossentropy, la cual genera un cálculo de perdida basada en como disminuye a medida que la probabilidad predicha converge hacia el label real. Mide el rendimiento de un modelo de clasificación cuya salida predicha es un valor de probabilidad entre las clases definidas.
 
 ### Función de optimización
-Para la elección de la función de optimización  se que se utilizó es el RMSprop (Root Mean Square Propagation) el cual usa una media móvil ponderada del cuadrado de los gradientes y divide el gradiente de cada parámetro por la raíz cuadrada de esta media. Para la elección de la taza de aprendizaje se utilizó el trabajo descrito por por Chen, H. et al. [6] donde se define este valor como 0.0001, dicho valor define el peso de cuanto se actualiza el resultado del ajuste del aprendizaje
+Para la elección de la función de optimización que se utilizó es el RMSprop (Root Mean Square Propagation) el cual usa una media móvil ponderada del cuadrado de los gradientes y divide el gradiente de cada parámetro por la raíz cuadrada de esta media. Para la elección de la taza de aprendizaje se utilizó el trabajo descrito por Chen, H. et al. [6] donde se define este valor como 0.0001, dicho valor define el peso de cuanto se actualiza el resultado del ajuste del aprendizaje
 
 Con el batchsize definido previamente se determina el número de steps que se realizan por epoch, los cuales su multiplicación deberá de dar un resultado igual al total de imágenes de set de train, o test, o validation.
 
@@ -133,12 +132,13 @@ Contando con el modelo implementado con la siguiente estructura:
 
 ![Imagen de referencia0](files/reference/Evidence0.png)
 
-Para este modelo inicial se definieron 40 epochs donde se analizaran sus resultados. Todo el modelo desarrollado se encuentra en el archivo del repositorio **DogEmotionClassificationModel_A01703556.ipynb**
+Para este modelo inicial se definieron 40 epochs donde se analizaran sus resultados. Todo el modelo desarrollado se encuentra en el archivo del repositorio **DogEmotionClassificationModel_A01703556.ipynb** al igual que en: ["Model"](https://colab.research.google.com/drive/120kXTir0JoglEGftlPs8CDRKJGVa98m7?usp=sharing)
+
 ## Evaluación inicial del modelo
 Para evaluar el modelo inicialmente se entrenó con 40 epochs con un 131 steps por epoch, y se recopilaron los datos de accuracy y loss para el train, validation y test data, basado en lo descrito por A. Hussain et al. [7] donde se obtienen los resultados de accuracy para el modelo de detección de bienestar en los perros. Describen, además de esto, 3 métricas: precisión, recall, y el puntaje F1.
 ![Imagen de referencia1](files/reference/Evidence1.png)
 
-Esto para evaluar el desempeño del modelo generado. Por lo tanto en cuanto a los resultados obtenidos por el modelo previamente descrito se obtuvo lo siguientes resultados:
+Esto para evaluar el desempeño del modelo generado. Por lo tanto, en cuanto a los resultados obtenidos por el modelo previamente descrito, se obtuvieron los siguientes resultados:
 ### Train vs validation Accuracy
 ![Imagen de referencia2](files/reference/Evidence2.png)
 ### Train vs validation Loss
@@ -148,7 +148,7 @@ Esto para evaluar el desempeño del modelo generado. Por lo tanto en cuanto a lo
 ### Confusion Matrix
 ![Imagen de referencia5](files/reference/Evidence6.png)
 
-Aunado a esto para obtener los resultados esperados de  precisión, recall, y el puntaje F se requiere generar una matriz de confusión la cual mide el desempeño de las predicciones realizadas por el modelo, donde se calcula por medio de TP, TN, FP y FN. 
+Aunado a esto, para obtener los resultados esperados de precisión, recall, y el puntaje F se requiere generar una matriz de confusión, la cual mide el desempeño de las predicciones realizadas por el modelo, donde se calcula por medio de TP, TN, FP y FN. 
 
 - **TP (True Positive)**: Estos son los casos en los que el modelo predijo correctamente la clase positiva. Es decir, el modelo predijo que la muestra pertenece a la clase positiva, y esa predicción fue correcta cuando se compara con la verdad.
 
@@ -174,9 +174,9 @@ Al analizar los resultados obtenidos al entrenar el modelo por 40 epochs se obse
   - Accuracy: 0.7299
  
 
-Al  observar las diferencia del accuracy de **train** y **validation**, se observa una diferencia de **4.06%** y al compararlo con la diferencia del accuracy de **train** y **test** se observa una diferencia de **7.19%** lo cual puede ser indicativo de que se esté sobreajustando el modelo al set de entrenamiento y esté **memorizando** ese set para obtener mejores resultados en vez de aprender, y es por eso que al comparar con test se obtiene un resultado menor.
+Al observar las diferencia del accuracy de **train** y **validation**, se observa una diferencia de **4.06%** y al compararlo con la diferencia del accuracy de **train** y **test** se observa una diferencia de **7.19%** lo cual puede ser indicativo de que se esté sobre ajustando el modelo al set de entrenamiento y esté **memorizando** ese set para obtener mejores resultados en vez de aprender, y es por eso que al comparar con test se obtiene un resultado menor.
 
-De igual forma existe una relación de loss similar en donde cada vez va aumentando más la diferencia de loss con respecto a **train**, **validation** y **test** aumentando en un **10%** con cada set. Los resultados al llegar a un accuracy relativamente menor con lo esperado de la capacidad de un humano promedio que se encuentra en un accuracy de 92% se podría determinar que también no está aprendiendo de la forma en la que debería el modelo. Con esto al visualizar la matriz de confusión se puede concluir que el modelo identifica mejor las emociones de tristeza y felicidad pero aun confunde la emoción de enojo, con la clase felicidad. y los puntajes F1 se encuentran en 
+De igual forma existe una relación de loss similar en donde cada vez va aumentando más la diferencia de loss con respecto a **train**, **validation** y **test** aumentando en un **10%** con cada set. Los resultados al llegar a un accuracy relativamente menor con lo esperado de la capacidad de un humano promedio que se encuentra en un accuracy de 92%, se podría determinar que también no está aprendiendo de la forma en la que debería el modelo. Con esto, al visualizar la matriz de confusión se puede concluir que el modelo identifica mejor las emociones de tristeza y felicidad, pero aún confunde la emoción de enojo, con la clase felicidad. Y para los puntajes F1 se obtuvo lo siguiente:
 
 - **Angry**: 0.35
 - **Happy**: 0.40
@@ -184,10 +184,8 @@ De igual forma existe una relación de loss similar en donde cada vez va aumenta
 
 Cuando se compara esto con la literatura investigada, se obtiene una gran diferencia, ya que en general los resultados del puntaje F1 de las clases de los modelos investigados se encuentran entre **0.75 y 0.95**
 
-En conclusión para este evaluación inicial del modelo se observa la necesidad de mejorar la calidad del modelo para que aumente su tasa de accuracy en su aprendizaje, al igual que tomar futuras medidas para evitar el sobreajuste y que mejore el accuracy de las predicciones realizadas. 
-
+En conclusión, para esta evaluación inicial del modelo se observa la necesidad de mejorar la calidad del modelo para que aumente su tasa de accuracy en su aprendizaje, al igual que tomar futuras medidas para evitar el sobre ajuste y que mejore el accuracy de las predicciones realizadas. 
  
-
 # Referencias bibliográficas
 
 [1] K. K. Pal and K. S. Sudeep, "Preprocessing for image classification by convolutional neural networks," 2016 IEEE International Conference on Recent Trends in Electronics, Information & Communication Technology (RTEICT), Bangalore, India, 2016, pp. 1778-1781, doi: 10.1109/RTEICT.2016.7808140.
