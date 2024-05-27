@@ -6,6 +6,7 @@ Ariann Fernando Arriaga Alcántara A01703556
 
 En el siguiente repositorio se alojarán todos los archivos desarrollados referentes al modelo para el Módulo 2 de la materia de Desarrollo de aplicaciones avanzadas de ciencias computacionales TC3002B
 
+Todos los avances que se encuentran en este repositorio fueron desarrollados dentro de la siguiente carpeta de drive: ["Modulo 2"](https://drive.google.com/drive/folders/14AKGu8siQM9iV9aBoJnX9msSJgTD-qDk?usp=drive_link)
 
 # Clasificación de emociones de perros
 
@@ -106,29 +107,27 @@ Características principales de VGG16:
 
 3. **Capas Totalmente Conectadas**: Al final de la red, hay tres capas totalmente conectadas. Las dos primeras tienen 4096 unidades cada una y la última capa tiene un número de unidades igual al número de clases en el conjunto de datos (por ejemplo, 1000 para ImageNet).
 
-4. **Capa de SoftMax**: La última capa de la red es una capa de SoftMax, que produce una distribución de probabilidad sobre las clases de salida.
-
-5. **Entrada de la Red**: La red toma imágenes de entrada con dimensiones de 224x224x3 píxeles originalmente (altura, anchura, canales de color) con las modificaciones actuales se cuenta con las dimensiones 150x150x3.
+4. **Entrada de la Red**: La red toma imágenes de entrada con dimensiones de 224x224x3 píxeles originalmente (altura, anchura, canales de color) con las modificaciones actuales se cuenta con las dimensiones 150x150x3.
 
 Además de utilizar la arquitectura VGG-16 el modelo creado utiliza las siguientes capas con base a los artículos descritos previamente:
 
-1. **base model**: Es la capa base del modelo secuencial, la cual es la arquitectura VGG-16 descrita previamente
+1. **Base model**: Es la capa base del modelo secuencial, la cual es donde esta determinada la arquitectura VGG-16 descrita previamente.
 
-2. **flatten**: es una capa de la red que aplana la entrada a las neuronas
+2. **Flatten**:El modelo cuenta con una capa Flatter en una red neuronal que convierte una entrada multidimensional en un vector unidimensional, facilitando el procesamiento por las capas densas.
 
-3. **Dense**: el modelo cuenta con 2 capas densas las cuales cuentan con 1024 y 256 neuronas respectivamente, y las cuales cuentan con una función de activación "relu" la cual se activa si el valor de la función es positivo entonces toma el valor de la x, además de un regularizers lo cuales añaden un término de penalización al costo del modelo. Esto se hizo para desalentar el modelo a aprender pesos grandes. Lo cual se hace para evitar el sobreajuste
+3. **Dense**: El modelo cuenta con 2 capas densas las cuales cuentan con 256 y 128 neuronas respectivamente, y las cuales cuentan con una función de activación "relu" la cual se activa si el valor de la función es positivo entonces toma el valor de la x, además de un regularizer el cual añade un término de penalización al costo del modelo. Esto se hizo para desalentar el modelo a aprender pesos grandes. Lo cual se hace para evitar el sobreajuste.
 
-4. **Dropout**: dentro de las capas densas se encuentran las capas dropout las cuales omiten aleatoriamente algunas neuronas para evitar que el modelo se vuelva dependiente de cualquier neurona en particular.
+4. **Dropout**: Entre las capas densas definidas encuentran las capas dropout las cuales omiten aleatoriamente algunas neuronas para evitar que el modelo se vuelva dependiente de cualquier neurona en particular. Con un valor de activación de 0.4 esto basandose en el trabajo descrito por Chen, H. et al. [6]
 
-5. **Salida**: por ultimo se genera una capa densa definida como salida con la función de activación softmax la cual genera una salida con una capa de 4 neuronas para la determinación de la clasificación basado en una función softmax
+5. **Salida**: por ultimo se genera una capa densa definida como salida con la función de activación softmax la cual genera una salida con una capa de 3 neuronas para la determinación de la del resultado de la clasificación basado en una función softmax.
 
 ### Loss
 Para la función de perdida se utilizó categorical crossentropy, la cual genera un calculo de perdida basado en como disminuye a medida que la probabilidad predicha converge hacia el label real. Mide el rendimiento de un modelo de clasificación cuya salida predicha es un valor de probabilidad entre las clases definidas.
 
 ### Función de optimización
-La función de optimización que se utilizó es el RMSprop (Root Mean Square Propagation) el cual usa una media móvil ponderada del cuadrado de los gradientes y divide el gradiente de cada parámetro por la raíz cuadrada de esta media.
+Para la elección de la función de optimización  se que se utilizó es el RMSprop (Root Mean Square Propagation) el cual usa una media móvil ponderada del cuadrado de los gradientes y divide el gradiente de cada parámetro por la raíz cuadrada de esta media. Para la elección de la taza de aprendizaje se utilizó el trabajo descrito por por Chen, H. et al. [6] donde se define este valor como 0.0001, dicho valor define el peso de cuanto se actualiza el resultado del ajuste del aprendizaje
 
-Con esto tomando en cuenta el batchsize definido previamente se determina el número de steps que se realizan por epoch, los cuales su multiplicación deberá de dar un resultado igual al total de imágenes de set de train, o test, o validation. Con una taza de aprendizaje definida de 1e-5 que define el peso de cuanto se actualiza el resultado del ajuste del aprendizaje
+Con el batchsize definido previamente se determina el número de steps que se realizan por epoch, los cuales su multiplicación deberá de dar un resultado igual al total de imágenes de set de train, o test, o validation.
 
 Contando con el modelo implementado con la siguiente estructura:
 
@@ -136,7 +135,7 @@ Contando con el modelo implementado con la siguiente estructura:
 
 Para este modelo inicial se definieron 40 epochs donde se analizaran sus resultados. Todo el modelo desarrollado se encuentra en el archivo del repositorio **DogEmotionClassificationModel_A01703556.ipynb**
 ## Evaluación inicial del modelo
-Para evaluar el modelo inicialmente se entrenó con 30 epochs con un 131 steps por epoch, y se recopilaron los datos de accuracy y loss para el train, validation y test data, basado en lo descrito por A. Hussain et al. [7] donde se obtienen los resultados de accuracy para el modelo de detección de bienestar en los perros. Describen para además de esto 3 métricas precisión, recall, y el puntaje F1.
+Para evaluar el modelo inicialmente se entrenó con 40 epochs con un 131 steps por epoch, y se recopilaron los datos de accuracy y loss para el train, validation y test data, basado en lo descrito por A. Hussain et al. [7] donde se obtienen los resultados de accuracy para el modelo de detección de bienestar en los perros. Describen, además de esto, 3 métricas: precisión, recall, y el puntaje F1.
 ![Imagen de referencia1](files/reference/Evidence1.png)
 
 Esto para evaluar el desempeño del modelo generado. Por lo tanto en cuanto a los resultados obtenidos por el modelo previamente descrito se obtuvo lo siguientes resultados:
@@ -148,10 +147,8 @@ Esto para evaluar el desempeño del modelo generado. Por lo tanto en cuanto a lo
 ![Imagen de referencia4](files/reference/Evidence4.png)
 ### Confusion Matrix
 ![Imagen de referencia5](files/reference/Evidence6.png)
-### Precisión, Recall y Puntaje F1
-![Imagen de referencia6](files/reference/Evidence5.png)
 
-Además de esto para obtener los resultados esperados de  precisión, recall, y el puntaje F se requiere generar una matriz de confusión la cual mide el desempeño de las predicciones realizadas por el modelo, donde se calcula por medio de TP, TN, FP y FN. 
+Aunado a esto para obtener los resultados esperados de  precisión, recall, y el puntaje F se requiere generar una matriz de confusión la cual mide el desempeño de las predicciones realizadas por el modelo, donde se calcula por medio de TP, TN, FP y FN. 
 
 - **TP (True Positive)**: Estos son los casos en los que el modelo predijo correctamente la clase positiva. Es decir, el modelo predijo que la muestra pertenece a la clase positiva, y esa predicción fue correcta cuando se compara con la verdad.
 
@@ -161,8 +158,35 @@ Además de esto para obtener los resultados esperados de  precisión, recall, y 
 
 - **FN (False Negative)**: Estos son los casos en los que el modelo predijo incorrectamente la clase negativa. Es decir, el modelo predijo que la muestra no pertenecía a la clase positiva, pero esa predicción fue incorrecta cuando se compara con la verdad.
 
-## Análisis de los resultados obtenidos
+### Precisión, Recall y Puntaje F1
+![Imagen de referencia6](files/reference/Evidence5.png)
 
+## Análisis de los resultados obtenidos
+Al analizar los resultados obtenidos al entrenar el modelo por 40 epochs se observa el valor alcanzado por el accuracy y loss de **train**, **validation** y **test** dentro de los cuales se acanzaron los siguientes resultados finales:
+- **Train**:
+  - Loss: 0.5170
+  - Accuracy: 0.8018
+- **Validation**
+  - Loss: 0.60391
+  - Accuracy: 0.7612
+- **Test**
+  - Loss: 0.7515
+  - Accuracy: 0.7299
+ 
+
+Al  observar las diferencia del accuracy de **train** y **validation**, se observa una diferencia de **4.06%** y al compararlo con la diferencia del accuracy de **train** y **test** se observa una diferencia de **7.19%** lo cual puede ser indicativo de que se esté sobreajustando el modelo al set de entrenamiento y esté **memorizando** ese set para obtener mejores resultados en vez de aprender, y es por eso que al comparar con test se obtiene un resultado menor.
+
+De igual forma existe una relación de loss similar en donde cada vez va aumentando más la diferencia de loss con respecto a **train**, **validation** y **test** aumentando en un **10%** con cada set. Los resultados al llegar a un accuracy relativamente menor con lo esperado de la capacidad de un humano promedio que se encuentra en un accuracy de 92% se podría determinar que también no está aprendiendo de la forma en la que debería el modelo. Con esto al visualizar la matriz de confusión se puede concluir que el modelo identifica mejor las emociones de tristeza y felicidad pero aun confunde la emoción de enojo, con la clase felicidad. y los puntajes F1 se encuentran en 
+
+- **Angry**: 0.35
+- **Happy**: 0.40
+- **Sad**: 0.39
+
+Cuando se compara esto con la literatura investigada, se obtiene una gran diferencia, ya que en general los resultados del puntaje F1 de las clases de los modelos investigados se encuentran entre **0.75 y 0.95**
+
+En conclusión para este evaluación inicial del modelo se observa la necesidad de mejorar la calidad del modelo para que aumente su tasa de accuracy en su aprendizaje, al igual que tomar futuras medidas para evitar el sobreajuste y que mejore el accuracy de las predicciones realizadas. 
+
+ 
 
 # Referencias bibliográficas
 
