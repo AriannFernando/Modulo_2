@@ -131,6 +131,7 @@ La función de optimización que se utilizó es el RMSprop (Root Mean Square Pro
 Con esto tomando en cuenta el batchsize definido previamente se determina el número de steps que se realizan por epoch, los cuales su multiplicación deberá de dar un resultado igual al total de imágenes de set de train, o test, o validation. Con una taza de aprendizaje definida de 1e-5 que define el peso de cuanto se actualiza el resultado del ajuste del aprendizaje
 
 Contando con el modelo implementado con la siguiente estructura:
+
 ![Imagen de referencia0](files/reference/Evidence0.png)
 
 Para este modelo inicial se definieron 40 epochs donde se analizaran sus resultados. Todo el modelo desarrollado se encuentra en el archivo del repositorio **DogEmotionClassificationModel_A01703556.ipynb**
