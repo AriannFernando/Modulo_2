@@ -130,20 +130,22 @@ La función de optimización que se utilizó es el RMSprop (Root Mean Square Pro
 
 Con esto tomando en cuenta el batchsize definido previamente se determina el número de steps que se realizan por epoch, los cuales su multiplicación deberá de dar un resultado igual al total de imágenes de set de train, o test, o validation. Con una taza de aprendizaje definida de 1e-5 que define el peso de cuanto se actualiza el resultado del ajuste del aprendizaje
 
-Para este modelo inicial se definieron 30 epochs donde se analizaran sus resultados. Todo el modelo desarrollado se encuentra en el archivo del repositorio **DogEmotionClassificationModel.py**
+Para este modelo inicial se definieron 40 epochs donde se analizaran sus resultados. Todo el modelo desarrollado se encuentra en el archivo del repositorio **DogEmotionClassificationModel.py**
 ## Evaluación inicial del modelo
 Para evaluar el modelo inicialmente se entrenó con 30 epochs con un 131 steps por epoch, y se recopilaron los datos de accuracy y loss para el train, validation y test data, basado en lo descrito por A. Hussain et al. [7] donde se obtienen los resultados de accuracy para el modelo de detección de bienestar en los perros. Describen para además de esto 3 métricas precisión, recall, y el puntaje F1.
-
+![Imagen de referencia1](files/augmented/Evidence0.png)
 
 Esto para evaluar el desempeño del modelo generado. Por lo tanto en cuanto a los resultados obtenidos por el modelo previamente descrito se obtuvo lo siguientes resultados:
 ### Train vs validation Accuracy
+![Imagen de referencia2](files/augmented/Evidence1.png)
 ### Train vs validation Loss
-### Test Accuracy
-
+![Imagen de referencia3](files/augmented/Evidence2.png)
+### Test Accuracy y Test Loss
+![Imagen de referencia4](files/augmented/Evidence3.png)
 ### Confusion Matrix
-
+![Imagen de referencia5](files/augmented/Evidence4.png)
 ### Precisión, Recall y Puntaje F1
-
+![Imagen de referencia6](files/augmented/Evidence6.png)
 Además de esto para obtener los resultados esperados de  precisión, recall, y el puntaje F se requiere generar una matriz de confusión la cual mide el desempeño de las predicciones realizadas por el modelo, donde se calcula por medio de TP, TN, FP y FN. 
 
 - **TP (True Positive)**: Estos son los casos en los que el modelo predijo correctamente la clase positiva. Es decir, el modelo predijo que la muestra pertenece a la clase positiva, y esa predicción fue correcta cuando se compara con la verdad.
