@@ -185,6 +185,8 @@ De igual forma existe una relación de loss similar en donde cada vez va aumenta
 Cuando se compara esto con la literatura investigada, se obtiene una gran diferencia, ya que en general los resultados del puntaje F1 de las clases de los modelos investigados se encuentran entre **0.75 y 0.95**
 
 En conclusión, para esta evaluación inicial del modelo se observa la necesidad de mejorar la calidad del modelo para que aumente su tasa de accuracy en su aprendizaje, al igual que tomar futuras medidas para evitar el sobre ajuste y que mejore el accuracy de las predicciones realizadas. 
+
+## Refinamiento del modelo
  
 # Referencias bibliográficas
 
