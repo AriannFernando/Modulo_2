@@ -176,11 +176,11 @@ Al analizar los resultados obtenidos al entrenar el modelo por 40 epochs se obse
 
 Al observar las diferencia del accuracy de **train** y **validation**, se observa una diferencia de **4.06%** y al compararlo con la diferencia del accuracy de **train** y **test** se observa una diferencia de **7.19%** lo cual puede ser indicativo de que se esté sobre ajustando el modelo al set de entrenamiento y esté **memorizando** ese set para obtener mejores resultados en vez de aprender, y es por eso que al comparar con test se obtiene un resultado menor.
 
-De igual forma existe una relación de loss similar en donde cada vez va aumentando más la diferencia de loss con respecto a **train**, **validation** y **test** aumentando en un **10%** con cada set. Los resultados al llegar a un accuracy relativamente menor con lo esperado de la capacidad de un humano promedio que se encuentra en un accuracy de 92%, se podría determinar que también no está aprendiendo de la forma en la que debería el modelo. Con esto, al visualizar la matriz de confusión se puede concluir que el modelo identifica mejor las emociones de tristeza y felicidad, pero aún confunde la emoción de enojo, con la clase felicidad. Y para los puntajes F1 se obtuvo lo siguiente:
+De igual forma existe una relación de loss similar en donde cada vez va aumentando más la diferencia de loss con respecto a **train**, **validation** y **test**. El porcentaje de aumento del loss de **train** a **validation** es aproximadamente **16.81%**, y el porcentaje de aumento del **validation** a **test** es aproximadamente **24.43%**.  Los resultados al llegar a un accuracy relativamente menor con lo esperado de la capacidad de un humano promedio que se encuentra en un accuracy de 92%, se podría determinar que también no está aprendiendo de la forma en la que debería el modelo. Con esto, al visualizar la matriz de confusión se puede concluir que el modelo identifica mejor las emociones de tristeza y felicidad, pero aún confunde la emoción de enojo, con la clase felicidad. Y para los puntajes F1 se obtuvo lo siguiente:
 
-- **Angry**: 0.35
-- **Happy**: 0.40
-- **Sad**: 0.39
+- **Angry**: 0.66
+- **Happy**: 0.74
+- **Sad**: 0.79
 
 Cuando se compara esto con la literatura investigada, se obtiene una gran diferencia, ya que en general los resultados del puntaje F1 de las clases de los modelos investigados se encuentran entre **0.75 y 0.95**
 
