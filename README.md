@@ -202,5 +202,5 @@ En conclusión, para esta evaluación inicial del modelo se observa la necesidad
 
 [6] Chen, H.-Y.; Lin, C.-H.; Lai,J.-W.; Chan, Y.-K. "Convolutional Neural Network-Based Automated System for Dog Tracking and Emotion Recognition in Video Surveillance". Appl. Sci. 2023, 13,4596.https://doi.org/10.3390/app13074596
 
-[7]A. Hussain, S. Ali, Abdullah, and H.-C. Kim, “Activity Detection for the Wellbeing of Dogs Using Wearable Sensors Based on Deep Learning,” IEEE Access, vol. 10, pp. 53153–53163, 2022, doi: https://doi.org/10.1109/ACCESS.2022.3174813.
+[7] A. Hussain, S. Ali, Abdullah, and H.-C. Kim, “Activity Detection for the Wellbeing of Dogs Using Wearable Sensors Based on Deep Learning,” IEEE Access, vol. 10, pp. 53153–53163, 2022, doi: https://doi.org/10.1109/ACCESS.2022.3174813.
 ‌
