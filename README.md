@@ -187,13 +187,14 @@ Cuando se compara esto con la literatura investigada, se obtiene una gran difere
 En conclusión, para esta evaluación inicial del modelo se observa la necesidad de mejorar la calidad del modelo para que aumente su tasa de accuracy en su aprendizaje, al igual que tomar futuras medidas para evitar el sobre ajuste y que mejore el accuracy de las predicciones realizadas. 
 
 ## Refinamiento del modelo
+
 Después de analizar los resultados de la primera evaluación del modelo, se realizaron ajustes los basados en técnicas establecidas las cuales permiten el refinamiento del modelo. Aunado a esto, se realizaron estos cambios al determinar el mejor resultado que obtuviese un equilibrio en la métricas a evaluar. Para esto se ejecutó una serie de experimentos donde se modificaron los hiperparametros del modelo para obtener un resultado positivo.
 
 Las modificaciones finales del modelo fueron en la parte del pre procesamiento del set de **train**, donde se amplio el rango posible para que la imagen tenga un acercamiento, pasó de un 10% a un 20%. Además, se modifico el batch size para adecuarse a las capacidades del entorno de ejecución.
 
 En cuanto a la estructura del modelo en sí, se añadió una capa **densa** adicional antes de las dos capas densas previamente definidas. Esta capa densa añadida cuenta con 512 neuronas, Y entre esta capa densa se encuentra una capa **dropout** con un valor de activación del 0.6 para lidiar efectivamente con el sobre ajuste previamente experimentado. Contando con un **regularizador** L2 al igual que las dos capas densas previamente definidas. El valor de este regularizador esta en 0.00001 con base a lo estipulado por Chen, H. et al. [6]. Esto se hizo para evitar de una manera más activa el sobre ajuste en el modelo. Cabe destacar que el modelo base de transfer learning sigue siendo VGG16 y los valores de las capas dropout que están entre las capas que se definieron en la primera versión del modelo siguen siendo de 0.4.
 
-Para la función de optimización se mantiene la elección  RMSprop (Root Mean Square Propagation) y  para la taza de aprendizaje se utilizó el valor de 0.0001 por que brinda los resultados más balanceados en cuanto a las métricas por evaluar y está descrito en el trabajo por Chen, H. et al. [6].Por último se utilizaron 80 epochs para el entrenamiento del modelo, en vez de la cantidad previa de 40 epochs.
+Para la función de optimización se mantiene la elección  RMSprop (Root Mean Square Propagation) y para la taza de aprendizaje se utilizó el valor de 0.0001 porque brinda los resultados más balanceados en cuanto a las métricas por evaluar y está descrito en el trabajo por Chen, H. et al. [6]. Por último, se utilizaron 80 epochs para el entrenamiento del modelo, en vez de la cantidad previa de 40 epochs.
 
 La estructura final del modelo resultante:
 
@@ -201,7 +202,6 @@ La estructura final del modelo resultante:
 
 ### Resultados
 Los resultados obtenidos con el modelo refinado son los siguientes:
-
 
 ### Train vs validation Accuracy
 ![Imagen de referenciaFINAL2](files/reference/Refinement/Evidence2.png)
@@ -214,6 +214,38 @@ Los resultados obtenidos con el modelo refinado son los siguientes:
 
 ### Precisión, Recall y Puntaje F1
 ![Imagen de referenciaFINAL5](files/reference/Refinement/Evidence5.png)
+
+## Análisis de los resultados
+
+
+Al analizar los resultados obtenidos al entrenar el modelo refinado por 80 epochs se observa el valor alcanzado por el accuracy y loss de **train**, **validation** y **test** dentro de los cuales se acanzaron los siguientes resultados finales:
+
+- **Train**:
+  - Loss: 0.5452
+  - Accuracy: 0.7868
+- **Validation**
+  - Loss: 0.6615
+  - Accuracy: 0.7612
+- **Test**
+  - Loss: 0.7867
+  - Accuracy: 0.7533
+
+Estos valores al analizarlos con los previamente obtenidos, se puede observar en sus accuracy que para train ha disminuido en un **1.32%**, para validation se mantuvo igual y hubo una mejora para el set de test en un **2.33%**. Cuando se observan estos resultados se puede observar una mayor cohesión entre los valores alcanzados entre los diversos sets. Donde la diferencia entre en el accuracy del set de train y de test es de **3.35%**, lo cual entra en los rangos aceptables para determinar que no hay un sobre ajuste en el modelo, y que está aprendiendo más que memorizando.
+Aunque aún existe la misma diferencia en los valores de loss, que la que existía previamente, lo cual es un punto de mejora para el modelo. Los valores de acuracy para el set de test ya entra en lo investigado por la literatura donde se encontraba dentro de un 75% a 95%. Esto es indicativo de que aún existen mejoras posibles al modelo para alcanzar mejores resultados
+
+Con esto, al visualizar la matriz de confusión se puede concluir que el modelo sigue identificando mejor las emociones de tristeza y felicidad, pero aún confunde la emoción de enojo, con la clase felicidad y la de tristeza, aunque la distribución de las predicciones se ajusta aún más a la realidad comparada con la versión inicial. Y para los puntajes F1 se obtuvo lo siguiente:
+
+- **Angry**: 0.67
+- **Happy**: 0.76
+- **Sad**: 0.82
+
+Cuando se compara esto con los resultados previos, se obtuvo una mejora en el puntaje F1 de cada una de las clases, teniendo en promedio un valor de **0.75** superando al valor promedio del modelo inicial de **0.73** en un **2%**. En comparación con la literatura investigada, se obtiene una menor diferencia, ya que en general los resultados del puntaje F1 promedio de los modelos investigados se encuentran entre **0.75 y 0.95**, por lo tanto, los resultados ya se encuentran dentro de este umbral.
+
+En conclusión, las mejoras planteadas y realizadas para el modelo, demostraron ser exitosas, teniendo un mejor desempeño que su etapa inicial en todas la métrica definida para la evaluación, teniendo un mejor balance entre todos los resultados de estas métricas que lo obtenido previamente. Aunque aún existe espacio para la mejora de la precisión del modelo construido.
+
+
+
+
 
 # Referencias bibliográficas
 
