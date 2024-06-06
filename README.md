@@ -196,34 +196,25 @@ En cuanto a la estructura del modelo en sí, se añadió una capa **densa** adic
 Para la función de optimización se mantiene la elección  RMSprop (Root Mean Square Propagation) y  para la taza de aprendizaje se utilizó el valor de 0.0001 por que brinda los resultados más balanceados en cuanto a las métricas por evaluar y está descrito en el trabajo por Chen, H. et al. [6].Por último se utilizaron 80 epochs para el entrenamiento del modelo, en vez de la cantidad previa de 40 epochs.
 
 La estructura final del modelo resultante:
-![Imagen de referenciaFINAL1](files/reference/Evidence1.png)
+
+![Imagen de referenciaFINAL1](files/reference/Refinement/Evidence1.png)
+
 ### Resultados
-Para evaluar el modelo inicialmente se entrenó con 40 epochs con un 131 steps por epoch, y se recopilaron los datos de accuracy y loss para el train, validation y test data, basado en lo descrito por A. Hussain et al. [7] donde se obtienen los resultados de accuracy para el modelo de detección de bienestar en los perros. Describen, además de esto, 3 métricas: precisión, recall, y el puntaje F1.
-![Imagen de referencia1](files/reference/Refinement/Evidence1.png)
+Los resultados obtenidos con el modelo refinado son los siguientes:
 
-Esto para evaluar el desempeño del modelo generado. Por lo tanto, en cuanto a los resultados obtenidos por el modelo previamente descrito, se obtuvieron los siguientes resultados:
+
 ### Train vs validation Accuracy
-![Imagen de referencia2](files/reference/Evidence2.png)
+![Imagen de referenciaFINAL2](files/reference/Refinement/Evidence2.png)
 ### Train vs validation Loss
-![Imagen de referencia3](files/reference/Evidence3.png)
+![Imagen de referenciaFINAL3](files/reference/Refinement/Evidence3.png)
 ### Test Accuracy y Test Loss
-![Imagen de referencia4](files/reference/Evidence4.png)
+![Imagen de referenciaFINAL4](files/reference/Refinement/Evidence4.png)
 ### Confusion Matrix
-![Imagen de referencia5](files/reference/Evidence6.png)
-
-Aunado a esto, para obtener los resultados esperados de precisión, recall, y el puntaje F se requiere generar una matriz de confusión, la cual mide el desempeño de las predicciones realizadas por el modelo, donde se calcula por medio de TP, TN, FP y FN. 
-
-- **TP (True Positive)**: Estos son los casos en los que el modelo predijo correctamente la clase positiva. Es decir, el modelo predijo que la muestra pertenece a la clase positiva, y esa predicción fue correcta cuando se compara con la verdad.
-
-- **TN (True Negative)**: Estos son los casos en los que el modelo predijo correctamente la clase negativa. Es decir, el modelo predijo que la muestra no pertenecía a la clase positiva, y esa predicción fue correcta cuando se compara con la verdad.
-
-- **FP (False Positive)**: Estos son los casos en los que el modelo predijo incorrectamente la clase positiva. Es decir, el modelo predijo que la muestra pertenecía a la clase positiva, pero esa predicción fue incorrecta cuando se compara con la verdad. 
-
-- **FN (False Negative)**: Estos son los casos en los que el modelo predijo incorrectamente la clase negativa. Es decir, el modelo predijo que la muestra no pertenecía a la clase positiva, pero esa predicción fue incorrecta cuando se compara con la verdad.
+![Imagen de referenciaFINAL6](files/reference/Refinement/Evidence6.png)
 
 ### Precisión, Recall y Puntaje F1
-![Imagen de referencia6](files/reference/Evidence5.png)
- 
+![Imagen de referenciaFINAL5](files/reference/Refinement/Evidence5.png)
+
 # Referencias bibliográficas
 
 [1] K. K. Pal and K. S. Sudeep, "Preprocessing for image classification by convolutional neural networks," 2016 IEEE International Conference on Recent Trends in Electronics, Information & Communication Technology (RTEICT), Bangalore, India, 2016, pp. 1778-1781, doi: 10.1109/RTEICT.2016.7808140.
