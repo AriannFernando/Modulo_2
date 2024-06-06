@@ -187,6 +187,42 @@ Cuando se compara esto con la literatura investigada, se obtiene una gran difere
 En conclusión, para esta evaluación inicial del modelo se observa la necesidad de mejorar la calidad del modelo para que aumente su tasa de accuracy en su aprendizaje, al igual que tomar futuras medidas para evitar el sobre ajuste y que mejore el accuracy de las predicciones realizadas. 
 
 ## Refinamiento del modelo
+Después de analizar los resultados de la primera evaluación del modelo, se realizaron ajustes los basados en técnicas establecidas las cuales permiten el refinamiento del modelo. Aunado a esto, se realizaron estos cambios al determinar el mejor resultado que obtuviese un equilibrio en la métricas a evaluar. Para esto se ejecutó una serie de experimentos donde se modificaron los hiperparametros del modelo para obtener un resultado positivo.
+
+Las modificaciones finales del modelo fueron en la parte del pre procesamiento del set de **train**, donde se amplio el rango posible para que la imagen tenga un acercamiento, pasó de un 10% a un 20%. Además, se modifico el batch size para adecuarse a las capacidades del entorno de ejecución.
+
+En cuanto a la estructura del modelo en sí, se añadió una capa **densa** adicional antes de las dos capas densas previamente definidas. Esta capa densa añadida cuenta con 512 neuronas, Y entre esta capa densa se encuentra una capa **dropout** con un valor de activación del 0.6 para lidiar efectivamente con el sobre ajuste previamente experimentado. Contando con un **regularizador** L2 al igual que las dos capas densas previamente definidas. El valor de este regularizador esta en 0.00001 con base a lo estipulado por Chen, H. et al. [6]. Esto se hizo para evitar de una manera más activa el sobre ajuste en el modelo. Cabe destacar que el modelo base de transfer learning sigue siendo VGG16 y los valores de las capas dropout que están entre las capas que se definieron en la primera versión del modelo siguen siendo de 0.4.
+
+Para la función de optimización se mantiene la elección  RMSprop (Root Mean Square Propagation) y  para la taza de aprendizaje se utilizó el valor de 0.0001 por que brinda los resultados más balanceados en cuanto a las métricas por evaluar y está descrito en el trabajo por Chen, H. et al. [6].Por último se utilizaron 80 epochs para el entrenamiento del modelo, en vez de la cantidad previa de 40 epochs.
+
+La estructura final del modelo resultante:
+![Imagen de referenciaFINAL1](files/reference/Evidence1.png)
+### Resultados
+Para evaluar el modelo inicialmente se entrenó con 40 epochs con un 131 steps por epoch, y se recopilaron los datos de accuracy y loss para el train, validation y test data, basado en lo descrito por A. Hussain et al. [7] donde se obtienen los resultados de accuracy para el modelo de detección de bienestar en los perros. Describen, además de esto, 3 métricas: precisión, recall, y el puntaje F1.
+![Imagen de referencia1](files/reference/Refinement/Evidence1.png)
+
+Esto para evaluar el desempeño del modelo generado. Por lo tanto, en cuanto a los resultados obtenidos por el modelo previamente descrito, se obtuvieron los siguientes resultados:
+### Train vs validation Accuracy
+![Imagen de referencia2](files/reference/Evidence2.png)
+### Train vs validation Loss
+![Imagen de referencia3](files/reference/Evidence3.png)
+### Test Accuracy y Test Loss
+![Imagen de referencia4](files/reference/Evidence4.png)
+### Confusion Matrix
+![Imagen de referencia5](files/reference/Evidence6.png)
+
+Aunado a esto, para obtener los resultados esperados de precisión, recall, y el puntaje F se requiere generar una matriz de confusión, la cual mide el desempeño de las predicciones realizadas por el modelo, donde se calcula por medio de TP, TN, FP y FN. 
+
+- **TP (True Positive)**: Estos son los casos en los que el modelo predijo correctamente la clase positiva. Es decir, el modelo predijo que la muestra pertenece a la clase positiva, y esa predicción fue correcta cuando se compara con la verdad.
+
+- **TN (True Negative)**: Estos son los casos en los que el modelo predijo correctamente la clase negativa. Es decir, el modelo predijo que la muestra no pertenecía a la clase positiva, y esa predicción fue correcta cuando se compara con la verdad.
+
+- **FP (False Positive)**: Estos son los casos en los que el modelo predijo incorrectamente la clase positiva. Es decir, el modelo predijo que la muestra pertenecía a la clase positiva, pero esa predicción fue incorrecta cuando se compara con la verdad. 
+
+- **FN (False Negative)**: Estos son los casos en los que el modelo predijo incorrectamente la clase negativa. Es decir, el modelo predijo que la muestra no pertenecía a la clase positiva, pero esa predicción fue incorrecta cuando se compara con la verdad.
+
+### Precisión, Recall y Puntaje F1
+![Imagen de referencia6](files/reference/Evidence5.png)
  
 # Referencias bibliográficas
 
